@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="default" >
+
+    <!--关闭注解信息 -->
+    <commentGenerator>
+        <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+
+		<!-- 数据库配置  -->  
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+			connectionURL="jdbc:mysql://125.210.141.30/alarm?useUnicode=true&amp;characterEncoding=UTF-8"
+			userId="admin" 
+			password="Hello1234">   
+		</jdbcConnection>   
+
+    <javaTypeResolver>
+        <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+
+    <!-- model-->
+    <javaModelGenerator targetPackage="com.wasu.model" targetProject="src/main/java">
+        <property name="enableSubPackages" value="true"/>
+        <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+    <!-- xml-->
+    <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+        <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+
+    <!-- mapper-->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.wasu.dao" targetProject="src/main/java">
+        <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+
+<!--     <table tableName="vr_footstep" domainObjectName="FootStep"></table> -->
+<!--     <table tableName="vr_hotel" domainObjectName="Hotel"></table> -->
+<!--     <table tableName="vr_site" domainObjectName="Site"></table> -->
+    
+    <table tableName="call" domainObjectName="Call"></table>
+    </context>
+</generatorConfiguration>
