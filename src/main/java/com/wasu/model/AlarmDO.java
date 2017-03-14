@@ -2,7 +2,7 @@ package com.wasu.model;
 
 import java.util.Date;
 
-public class Call {
+public class AlarmDO {
     private Long id;
 
     private Date time;

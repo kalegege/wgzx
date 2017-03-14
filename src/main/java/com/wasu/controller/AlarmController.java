@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -26,25 +27,24 @@ public class AlarmController {
     private CallService callService;
 
     @RequestMapping(value = "/getalarm")
-    @ResponseBody
     public Object getAlarm(Model model) throws  Exception {
 //		Response responses=badiduYunUtils.createGeotable("geotable");
-        model.addAttribute("result","first name");
-        callService.findCall();
+        ModelAndView mad=new ModelAndView("alarm");
+        mad.addObject("city","浙江");
+//        callService.findCall();
 //		System.out.println("message"+responses.getMessage()+"id"+responses.getId());
-        return "alarm";
+        return mad;
     }
 
     @RequestMapping(value="test")
     @ResponseBody
     public Object test()throws Exception{
-//        List<Call>result=callService.findCall();
-
         Map resultMap=new HashMap();
         resultMap.put("name","kale");
         resultMap.put("id",100);
         return resultMap;
     }
+
 
 
 }

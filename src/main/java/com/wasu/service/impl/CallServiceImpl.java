@@ -1,6 +1,9 @@
 package com.wasu.service.impl;
 
+import com.wasu.dao.AlarmDOMapper;
 import com.wasu.dao.CallMapper;
+import com.wasu.model.AlarmDO;
+import com.wasu.model.AlarmDOExample;
 import com.wasu.model.Call;
 import com.wasu.model.CallExample;
 import com.wasu.service.CallService;
@@ -22,10 +25,20 @@ public class CallServiceImpl implements CallService{
     @Resource
     private CallMapper callMapper;
 
+    @Resource
+    private AlarmDOMapper alarmDOMapper;
+
     public List<Call> findCall() {
         CallExample callExample=new CallExample();
         CallExample.Criteria criteria=callExample.createCriteria();
 //        criteria.andIdEqualTo(2L);
         return callMapper.selectByExample(callExample);
+    }
+
+    public List<AlarmDO> queryAlarmNum(String cityName) {
+        AlarmDOExample alarmDOExample=new AlarmDOExample();
+        AlarmDOExample.Criteria criteria=alarmDOExample.createCriteria();
+        criteria.andNameEqualTo(cityName);
+        return alarmDOMapper.selectByExample(alarmDOExample);
     }
 }

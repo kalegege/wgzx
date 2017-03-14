@@ -1,6 +1,7 @@
 package com.wasu.service;
 
 
+import com.wasu.model.AlarmDO;
 import com.wasu.model.Call;
 
 import java.util.List;
@@ -10,4 +11,6 @@ import java.util.List;
  */
 public interface CallService {
     public List<Call> findCall();
+
+    public List<AlarmDO> queryAlarmNum(String cityName);
 }

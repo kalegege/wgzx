@@ -39,6 +39,6 @@
 <!--     <table tableName="vr_hotel" domainObjectName="Hotel"></table> -->
 <!--     <table tableName="vr_site" domainObjectName="Site"></table> -->
     
-    <table tableName="call" domainObjectName="Call"></table>
+    <table tableName="alarmSum" domainObjectName="AlarmDO"></table>
     </context>
 </generatorConfiguration>
