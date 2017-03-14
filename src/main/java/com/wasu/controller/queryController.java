@@ -1,7 +1,6 @@
 package com.wasu.controller;
 
 import com.wasu.model.AlarmDO;
-import com.wasu.model.Call;
 import com.wasu.service.CallService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
