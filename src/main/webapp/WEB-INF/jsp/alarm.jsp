@@ -14,10 +14,12 @@
     <%--<script type="text/javascript" src="js/chinamapPath.js"></script>--%>
     <script src="${basePath}/styles/d3.js" type="text/javascript"></script>
     <script src="${basePath}/styles/main.js" type="text/javascript"></script>
+    <script src="${basePath}/styles/jquery-3.1.1.js" type="text/javascript"></script>
 
 </head>
 <body>
 <div id="main" style="width:100px;height:50px;"></div>
+<div id="middle"></div>
 <div class="transitionsContainer"></div>
 <div class="chinamap"></div>
 <div>${requestScope.city}</div>
