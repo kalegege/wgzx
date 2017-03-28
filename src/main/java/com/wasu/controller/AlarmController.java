@@ -6,7 +6,6 @@ import com.wasu.annotion.Alarm.Color;
 import com.wasu.service.CallService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -14,16 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.awt.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -72,7 +68,7 @@ public class AlarmController {
 
 //        callService.findCall();
 //		System.out.println("message"+responses.getMessage()+"id"+responses.getId());
-        return mad;
+        return "alarm";
     }
 
     @RequestMapping(value = "test")
