@@ -52,9 +52,16 @@ public class MyLinkedList1 {
     public Node node(int index) {
         Node tmp = null;
         if (first != null) {
-            tmp = first;
-            for (int i = 0; i < index; i++) {
-                tmp = tmp.getNext();
+            if (index < size >> 1) {
+                tmp = first;
+                for (int i = 0; i < index; i++) {
+                    tmp = tmp.getNext();
+                }
+            } else {
+                tmp = last;
+                for (int i = size - 1; i > index; i--) {
+                    tmp = tmp.getPrevious();
+                }
             }
         }
         return tmp;
@@ -72,12 +79,12 @@ public class MyLinkedList1 {
         }
     }
 
-    public void add(int index,Object obj){
-        Node tmp=node(index);
-        Node newNode=new Node();
+    public void add(int index, Object obj) {
+        Node tmp = node(index);
+        Node newNode = new Node();
         newNode.setObj(obj);
-        if(tmp!=null){
-            Node up=tmp.getPrevious();
+        if (tmp != null) {
+            Node up = tmp.getPrevious();
             up.setNext(newNode);
             newNode.setPrevious(up);
 

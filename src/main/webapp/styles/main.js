@@ -423,7 +423,6 @@ function chinaMap(url) {
             .attr("stroke-width", 1)
             .attr("fill", function (d, i) {
                 return color(linear(i));
-
             })
             .attr("d", path)   //使用地理路径生成器
             .on("mouseover", function (d, i) {
@@ -439,6 +438,7 @@ function chinaMap(url) {
                 p.remove();
             })
             .on("click", function (d, i) {
+                var centroid=path.centroid(d);
                 d3.select(this)
                     .attr("fill", "red");
 
@@ -463,7 +463,26 @@ function chinaMap(url) {
 
             });
 
+        svg.selectAll("text")
+            .data(root.features)
+            .enter()
+            .append("text")
+            .attr("font-size",10)
+            .attr("x",function (d,i) {
+                var centroid=path.centroid(d);
+                return centroid[0];
+            })
+            .attr("y",function (d,i) {
+                var centroid=path.centroid(d);
+                return centroid[1];
+            })
+            .attr("dx","-5px")
+            .attr("dy","5px")
+            .text(function (d,i) {
+                return d.properties.name;
+            })
 
     });
+
 
 }

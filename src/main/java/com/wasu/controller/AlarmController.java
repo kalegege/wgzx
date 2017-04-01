@@ -17,6 +17,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.Closeable;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -107,7 +109,6 @@ public class AlarmController {
         alarmCache.put(1,"kkk");
         alarmCache.cleanUp();
         String a=new String();
-        StringBuilder b=new StringBuilder();
         Date t=new Date(1000);
         System.out.println(t.toGMTString());
 
@@ -129,4 +130,15 @@ public class AlarmController {
         return resultMap;
     }
 
+    public static <T extends Closeable> void test(T[] a){
+        for(T temp:a){
+            try{
+                if(null!=temp){
+                    temp.close();
+                }
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
 }

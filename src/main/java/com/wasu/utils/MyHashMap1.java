@@ -10,16 +10,18 @@ public class MyHashMap1 {
     public void put(Object key, Object value) {
         MyEntry e = new MyEntry(key, value);
 
-        int a = key.hashCode() % 999;
+        int hash = key.hashCode();
+        hash = hash < 0 ? -hash : hash;
+        int a = hash % 999;
         if (arr[a] == null) {
             MyLinkedList1 list = new MyLinkedList1();
             arr[a] = list;
             list.add(e);
         } else {
             MyLinkedList1 list = arr[a];
-            for(int i=0;i<list.size();i++){
-                MyEntry e2=(MyEntry) list.get(i);
-                if(e2.getKey().equals(key)){
+            for (int i = 0; i < list.size(); i++) {
+                MyEntry e2 = (MyEntry) list.get(i);
+                if (e2.getKey().equals(key)) {
                     e2.setValue(value);
                     return;
                 }
@@ -32,9 +34,9 @@ public class MyHashMap1 {
         int a = key.hashCode() % 999;
         if (arr[a] != null) {
             MyLinkedList1 list = arr[a];
-            for(int i=0;i<list.size();i++){
-                MyEntry e=(MyEntry) list.get(i);
-                if(e.getKey().equals(key)){
+            for (int i = 0; i < list.size(); i++) {
+                MyEntry e = (MyEntry) list.get(i);
+                if (e.getKey().equals(key)) {
                     return e.getValue();
                 }
             }
